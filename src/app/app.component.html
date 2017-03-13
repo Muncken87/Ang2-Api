@@ -1,11 +1,15 @@
-<label for="username">Username</label>
-<input type="text" id="username" #username>
-<label for="email">E-mail</label>
-<input type="text" id="email" #email>
-
-<button (click)="onSubmit(username.value, email.value)">Submit</button>
-<button (click)="onGetData()">Get Data</button>
-<ul>
-  <!-- <li *ngFor="let item of items">{{}}</li> -->
-  <li *ngFor="let item of items">{{item.results[1].name.first}}</li>
-</ul>
+<div class="container pad-top">
+  <!-- <button type="button" class="btn btn-primary" (click)="onGetData()">Get Data</button> -->
+  <div class="row">
+    <div *ngFor="let item of items" class="col-md-12 ">
+      <div class="flex">
+        <img class="img-fluid" src="{{item.picture.large}}"/>
+        <div class="flex-info">
+          <h2>{{item.name.first | capitalize}} {{item.name.last}}</h2>
+          <p><span>Country:</span> {{item.location.city | capitalize}}</p>
+          <p><span>Email:</span> {{item.email}}</p>
+          <button type="button" class="btn btn-info">Read More</button>
+        </div>
+      </div>
+  </div>
+</div>
