@@ -1,4 +1,11 @@
+<navbar></navbar>
 <div class="container pad-top">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for..." #nameSearch>
+    <span class="input-group-btn">
+      <button (click)="performSearch(nameSearch)" class="btn btn-secondary" type="button">Go!</button>
+    </span>
+  </div>
   <!-- <button type="button" class="btn btn-primary" (click)="onGetData()">Get Data</button> -->
   <div class="row">
     <div *ngFor="let item of items" class="col-md-12 ">
@@ -7,8 +14,8 @@
         <div class="flex-info">
           <h2>{{item.name.first | capitalize}} {{item.name.last}}</h2>
           <p><span>Country:</span> {{item.location.city | capitalize}}</p>
-          <p><span>Email:</span> {{item.email}}</p>
-          <button type="button" class="btn btn-info">Read More</button>
+          <p><span>Id:</span> {{item.id.value}}</p>
+          <!-- <button type="button" class="btn btn-info">Read More</button> -->
         </div>
       </div>
   </div>

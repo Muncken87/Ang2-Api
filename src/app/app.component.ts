@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
+import { NavbarComponent } from './navbar.component';
+import { Http, Response } from "@angular/http";
+import { SearchService } from './search.service';
 
 
 @Component({
@@ -10,8 +13,24 @@ import { DataService } from './data.service';
 
 export class AppComponent  {
   items: any[] = [];
-  constructor(private dataService: DataService) {}
+  http: Http;
 
+  constructor(private dataService: DataService, searchService: SearchService,http: Http) {
+    this.http = http;
+  }
+
+
+// nameSearch input
+// performSearch button
+
+  performSearch(nameSearch: HTMLInputElement): void {
+       var apiLink = this.items + nameSearch.value;
+
+        this.http.request(apiLink)
+          .subscribe((res: Response) => {
+               console.log(res.json());
+         });
+      }
 
   ngOnInit(){
     this.dataService.getOwnData()
@@ -30,4 +49,5 @@ export class AppComponent  {
         data => console.log(data)
     );
   }
+
 }

@@ -14,7 +14,9 @@ import { Observable } from "rxjs/Rx";
 
 @Injectable()
 export class DataService {
-
+  id = [];
+// nameSearch input
+// performSearch button
   constructor(private http: Http) {}
 
   getData(){
@@ -23,9 +25,10 @@ export class DataService {
   }
 
   getOwnData() {
-    return this.http.get('https://randomuser.me/api/?results=10')
+    return this.http.get('https://randomuser.me/api/?results=25')
     .map((response: Response) => response.json());
   }
+
 }
 // https://randomuser.me/api/zb868pou?key=9L5E-WMFI-JMGR-YXG9
 // https://test-9a9cf.firebaseio.com/

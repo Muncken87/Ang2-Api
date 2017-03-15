@@ -6,18 +6,24 @@ import {CapitalizePipe} from "./capitalize.pipe";
 
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
+import { SearchService } from './search.service';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
   ],
-  providers: [ DataService],
+  providers: [
+    DataService,
+    SearchService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
