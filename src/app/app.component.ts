@@ -1,37 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from './data.service';
 import { NavbarComponent } from './navbar.component';
-import { Http, Response } from "@angular/http";
-import { SearchService } from './search.service';
+import { FilterPipe } from './filter.pipe';
+
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
 })
 
 export class AppComponent  {
-  items: any[] = [];
-  http: Http;
+  items = [];
 
-  constructor(private dataService: DataService, searchService: SearchService,http: Http) {
-    this.http = http;
+  constructor(private dataService: DataService) {
   }
 
-
-// nameSearch input
-// performSearch button
-
-  performSearch(nameSearch: HTMLInputElement): void {
-       var apiLink = this.items + nameSearch.value;
-
-        this.http.request(apiLink)
-          .subscribe((res: Response) => {
-               console.log(res.json());
-         });
-      }
-
+  // Runs api fetch on init
   ngOnInit(){
     this.dataService.getOwnData()
       .subscribe(
@@ -44,10 +30,11 @@ export class AppComponent  {
         }
       );
 
-    this.dataService.getData()
-      .subscribe(
-        data => console.log(data)
-    );
+    // Console logs the api array in the console for testing
+    // this.dataService.getData()
+    //   .subscribe(
+    //     data => console.log(data)
+    // );
   }
 
 }
