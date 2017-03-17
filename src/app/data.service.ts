@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from "@angular/http";
+import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/Rx';
-import { Observable } from "rxjs/Rx";
+import { Observable } from 'rxjs/Rx';
 
 
 @Component({
