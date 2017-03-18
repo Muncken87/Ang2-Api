@@ -34,7 +34,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
       {
         path: 'list',
         component: ContactListComponent
-      }
+      },
     ]),
   ],
   providers: [

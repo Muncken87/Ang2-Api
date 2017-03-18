@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 
 @Component({
@@ -13,7 +14,12 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class DataService {
-  id = [];
+
+  getContacts(): Promise<Contact[]> {
+    return Promise.resolve(CONTACT);
+  }
+
+
 // nameSearch input
 // performSearch button
   constructor(private http: Http) {}
@@ -27,6 +33,11 @@ export class DataService {
     return this.http.get('https://randomuser.me/api/?results=25')
     .map((response: Response) => response.json());
   }
+
+  getContact(id: number): Promise<List> {
+   return this.getContacts()
+              .then(contacts => contacts.find(contact => contact.id.name === id));
+ }
 
 }
 // https://randomuser.me/api/zb868pou?key=9L5E-WMFI-JMGR-YXG9

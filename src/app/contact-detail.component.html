@@ -1,1 +1,11 @@
-{{title}}
+<h1>Hello</h1>
+<div *ngIf="list">
+    <h2>{{list.name.first}} details!</h2>
+    <div>
+      <label>id: </label>{{item.id.name}}
+    </div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="item.name.first" placeholder="name"/>
+    </div>
+  </div>
