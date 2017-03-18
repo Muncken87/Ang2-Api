@@ -28,7 +28,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     HttpModule,
     RouterModule.forRoot([
       {
-        path: 'details',
+        path: 'details/:id',
         component: ContactDetailComponent
       },
       {

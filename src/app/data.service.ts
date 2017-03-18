@@ -15,8 +15,8 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 @Injectable()
 export class DataService {
 
-  getContacts(): Promise<Contact[]> {
-    return Promise.resolve(CONTACT);
+  getContacts(): Promise<any> {
+   return this.getData().toPromise();
   }
 
 
@@ -34,7 +34,7 @@ export class DataService {
     .map((response: Response) => response.json());
   }
 
-  getContact(id: number): Promise<List> {
+  getContact(id: number): Promise<any> {
    return this.getContacts()
               .then(contacts => contacts.find(contact => contact.id.name === id));
  }
