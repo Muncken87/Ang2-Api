@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FilterPipe } from './filter.pipe';
-import { ContactDetailComponent } from './contact-detail.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 
 
@@ -30,6 +30,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
       {
         path: 'details/:id',
         component: ContactDetailComponent
+      },
+      {
+        path: '', redirectTo: '/list', pathMatch: 'full'
       },
       {
         path: 'list',

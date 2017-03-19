@@ -1,0 +1,42 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "kenan",
+        "last": "saygıner",
+        "id": "15245234234"
+      },
+      "location": {
+        "street": "9864 abanoz sk",
+        "city": "yozgat",
+        "state": "bartın",
+        "postcode": 54931
+      },
+      "email": "kenan.saygıner@example.com",
+      "login": {
+        "username": "orangepeacock545",
+        "password": "michael",
+        "salt": "2Nq3ZjWF",
+        "md5": "9b4604a2c08e199fdc1834a01b7e9033",
+        "sha1": "9c9793e3ab53a913d900ef9123e88bd1ad674d30",
+        "sha256": "fe248b490a6653833a7872e09d3211789bd386123f6d4084ad446d26107f3b53"
+      },
+      "dob": "1980-03-25 01:35:18",
+      "registered": "2015-03-26 10:41:00",
+      "phone": "(798)-900-5824",
+      "cell": "(110)-619-7612",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/35.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/35.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/35.jpg"
+      },
+      "nat": "TR"
+    }
+  ]
+}
