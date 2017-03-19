@@ -25,23 +25,17 @@ export class DataService {
     .map((response: Response) => response.json());
   }
 
-  getOwnData(id:string, type='employee') {
-    this.employeeUrl = 'https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=10'
+  getOwnData(type='employee') {
+    this.employeeUrl = ' https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=100'
     return this.http.get(this.employeeUrl)
                 .map(res => res.json());
   }
 
-  getEmployee(id:string, type='employee'){
-    this.employeeUrl = 'https://randomuser.me/api/?seed=ea0aa5a01dc11230&?first='+id;
-    return this.http.get(this.employeeUrl)
-                .map(res => res.json());
+  getEmployee(id: number,type='employee'){
+    this.employeeUrl = ' https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=100'
+      let arr = this.http.get(this.employeeUrl)
+    .map(res => res.json());
+    return arr[id-1];
   }
-
-
- //  getContact(id: number): Promise<any> {
- //   return this.getContacts()
- //              .then(contacts => contacts.find(contact => contact.id.name === id));
- // }
-
 }
 // https://randomuser.me/api/?results=25
