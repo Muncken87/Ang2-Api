@@ -1,8 +1,6 @@
-<h1>Hello</h1>
-
-<header class="employee-header">
+<h2>Details for:</h2>
+<button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
 <div *ngIf="employee">
-      <pre>{{employee | json}}</pre>
-      <!-- <pre>{{employee.name.first}}</pre> -->
+  <pre>{{employee | json}} details!</pre>
+  <!-- <h2>{{employee.name.first}}</h2> -->
 </div>
-  </header>

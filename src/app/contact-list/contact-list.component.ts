@@ -13,30 +13,26 @@ import { RouterModule }   from '@angular/router';
   styleUrls: ['./contact-list.component.sass'],
 })
 
-export class ContactListComponent  {
-  employeeRes: Employee[];
+export class ContactListComponent implements OnInit  {
+  employees = [];
   employeeId: string;
 
 
   constructor(private dataService: DataService) {
   }
 
-  //Runs api fetch on init
+  //Runs api fetch on init and puts the api data into an array
   ngOnInit(){
-    // this.dataService.getOwnData()
-    //   .subscribe(
-    //     results => {
-    //       const myArray = [];
-    //       for (let key in results) {
-    //         myArray.push(results[key]);
-    //       }
-    //       this.employeeRes = results.results;
-    //     }
-    //   );
-    this.dataService.getOwnData(this.employeeId)
-        .subscribe(res => {
-          this.employeeRes = res.results;
-        })
+    this.dataService.getOwnData()
+      .subscribe(
+        results => {
+          const myArray = [];
+          for (let key in results) {
+            myArray.push(results[key]);
+          }
+          this.employees = results.results;
+        }
+      );
   }
 
 }

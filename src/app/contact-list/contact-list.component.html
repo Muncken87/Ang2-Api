@@ -3,14 +3,14 @@
   <span class="input-group-btn"></span>
 </div>
 <div class="row">
-  <div *ngFor="let res of employeeRes | filter:term; let i = index" [attr.data-index]="i"  class="col-md-12">
+  <div *ngFor="let employee of employees | filter:term; let i = index" [attr.data-index]="i"  class="col-md-12">
     <a [routerLink]="['/details', i]">
       <div class="flex">
-        <img class="img-fluid" src="{{res.picture.large}}"/>
+        <img class="img-fluid" src="{{employee.picture.large}}"/>
         <div class="flex-info">
-           <h2>{{res.name.first | capitalize }} {{res.name.last}}</h2>
-          <p><span>Country:</span> {{res.location.city | capitalize}}</p>
-          <!-- <p>Id:{{employee.}} </p> -->
+           <h2>{{employee.name.first | capitalize }} {{employee.name.last}}</h2>
+          <p><span>Country:</span> {{employee.location.city | capitalize}}</p>
+          <p>Id:{{i}} </p>
           <!-- <pre>{{employee | json}}</pre> -->
         </div> <!-- end FlexInfo -->
       </div> <!-- end Flex -->

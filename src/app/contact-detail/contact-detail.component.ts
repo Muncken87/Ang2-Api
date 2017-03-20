@@ -1,10 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
 import { Employee } from '../employee';
-
 import { FilterPipe } from '../filter.pipe';
-import { ActivatedRoute} from '@angular/router';
-import { RouterModule }   from '@angular/router';
+import { ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
@@ -19,15 +17,16 @@ import 'rxjs/add/operator/switchMap';
 
 export class ContactDetailComponent implements OnInit  {
   id: string;
-  employee: Employee[];
+  employee: Employee;
 
   constructor(
     private dataService:DataService,
-    private route:ActivatedRoute)
+    private route:ActivatedRoute,
+    private location: Location)
   {}
 
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.route.params
         .map(params => params['id'])
         .subscribe((id) => {
@@ -38,8 +37,8 @@ export class ContactDetailComponent implements OnInit  {
         })
 
   }
-//   goBack(): void {
-//   this.location.back();
-// }
+  goBack(): void {
+  this.location.back();
+}
 
 }

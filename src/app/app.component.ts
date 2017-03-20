@@ -13,6 +13,4 @@ import { DataService } from './data.service';
 
 export class AppComponent  {
 
-
-
 }

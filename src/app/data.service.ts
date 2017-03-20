@@ -17,25 +17,27 @@ import  'rxjs/add/operator/map';
 export class DataService {
   private employeeUrl: string;
 
-
   constructor(private http: Http) {}
 
-  getData(){
-    return this.http.get('https://randomuser.me/api/?format=json')
-    .map((response: Response) => response.json());
-  }
-
-  getOwnData(type='employee') {
-    this.employeeUrl = ' https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=100'
+  // Function that displays 20 users from a fixed seed
+  getOwnData() {
+    this.employeeUrl = 'https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=20'
     return this.http.get(this.employeeUrl)
                 .map(res => res.json());
   }
 
+    // Non functional function that should fetch the selected user, and pick the current user from the fetched array,
+    // Each user dont have a unique id, so the way to choose the selected one is to find it in the array
   getEmployee(id: number,type='employee'){
-    this.employeeUrl = ' https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=100'
-      let arr = this.http.get(this.employeeUrl)
-    .map(res => res.json());
-    return arr[id-1];
+    this.employeeUrl = ' https://randomuser.me/api/?seed=ea0aa5a01dc11230&results=20'
+    return this.http.get(this.employeeUrl)
+                .map(res => res.json());
   }
+
+  //   getContact(id: number): Promise<any> {
+  //   return this.getContacts()
+  //              .then(employees => employees.find(employee => employee.id.name === id));
+  // }
+
 }
 // https://randomuser.me/api/?results=25
